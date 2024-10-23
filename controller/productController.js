@@ -4,8 +4,8 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appErrors');
 
 exports.getAllProduct = async (req, res) => {
-  const products = await Prroduct.find().sort('title');
-  res.send(movies);
+  const products = await Product.find().sort('title');
+  res.send(products);
 };
 
 
@@ -40,7 +40,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 
 
 exports.deleteProduct = async (req, res) => {
-  const product = await Movie.findByIdAndDelete(req.params.id);
+  const product = await Product.findByIdAndDelete(req.params.id);
 
   if (!product) return res.status(404).send('The product with the given ID not found.');
 
